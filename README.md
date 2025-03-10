@@ -1,64 +1,143 @@
-# Gerenciamento de Estoques com Controle de Validade e FIFO
+# Sistema de Gerenciamento de Estoque com FIFO
 
-## Descrição do Projeto
-Este sistema foi desenvolvido como parte da disciplina de Estrutura de Dados para implementar um gerenciador de estoque que organiza produtos com base em suas datas de vencimento, aplicando o método FIFO (First In, First Out). O objetivo principal é criar uma solução eficiente para controlar produtos com prazos de validade, garantindo que os itens próximos ao vencimento sejam priorizados para venda.
+Esta é uma aplicação Java para gerenciamento de estoque com foco em datas de vencimento e implementando o princípio FIFO (First In, First Out - Primeiro a Entrar, Primeiro a Sair). O sistema permite aos usuários adicionar, remover, pesquisar e acompanhar produtos com datas de vencimento próximas.
 
-## Estrutura do Projeto
-O projeto está organizado em três classes principais:
-- `Produto`: Define a estrutura de dados para armazenar informações dos produtos
-- `Estoque`: Implementa a lógica de gerenciamento usando fila e streams
-- `Main`: Classe executável para demonstração das funcionalidades
+## Funcionalidades
 
-## Funcionalidades Implementadas
-- Adição de produtos com nome, código, quantidade e data de vencimento
-- Organização automática dos produtos por data de vencimento 
-- Listagem de produtos ordenados por proximidade de vencimento
-- Remoção de produtos do estoque (implementando FIFO)
-- Alerta para produtos próximos da data de vencimento (configurável em dias)
+- Adicionar novos produtos com nome, código, quantidade e data de vencimento
+- Remover produtos usando a ordem FIFO (data de vencimento mais antiga primeiro)
+- Pesquisar produtos por nome ou código
+- Acompanhar produtos próximos da data de vencimento
+- Ordenar e exibir produtos por data de vencimento
+- Interface gráfica para fácil interação
 
-## Tecnologias Utilizadas
-- Linguagem Java
-- Estrutura de dados: Queue (implementada com LinkedList)
-- API de data: LocalDate do Java 8+
-- Streams para operações de filtragem e ordenação
+## Componentes
 
-## Como Executar o Projeto
-1. Certifique-se de ter o JDK instalado (versão 8 ou superior)
-2. Compile os três arquivos Java:
+A aplicação consiste em quatro classes Java principais:
+
+### Produto
+
+Representa um produto com os seguintes atributos:
+- Nome
+- Código
+- Quantidade
+- Data de vencimento
+
+### Estoque
+
+Implementa a funcionalidade principal de gerenciamento de estoque:
+- Adicionar produtos ao estoque
+- Remover produtos usando o princípio FIFO
+- Listar produtos ordenados por data de vencimento
+- Pesquisar produtos por nome ou código
+- Identificar produtos próximos do vencimento
+
+### EstoqueGUI
+
+Fornece uma interface gráfica com:
+- Formulário para adicionar novos produtos
+- Funcionalidade de pesquisa
+- Tabela exibindo produtos
+- Botões para operações de gerenciamento de estoque
+- Avisos de data de vencimento
+
+### Main
+
+Ponto de entrada para a aplicação que inicia a interface gráfica.
+
+## Como Usar
+
+1. **Adicionar Produtos**:
+   - Preencha o nome do produto, código, quantidade e data de vencimento
+   - Clique no botão "Adicionar"
+
+2. **Remover Produtos**:
+   - Clique no botão "Remover Produto" para remover o produto mais antigo
+
+3. **Pesquisar Produtos**:
+   - Selecione o tipo de pesquisa (por nome ou código)
+   - Digite o termo de busca
+   - Clique no botão "Pesquisar"
+   - Use "Limpar Pesquisa" para retornar à visualização completa do estoque
+
+4. **Verificar Vencimentos**:
+   - Defina o número de dias para avisos de vencimento
+   - Clique em "Verificar Vencimentos" para ver produtos que vencem em breve
+
+5. **Atualizar Lista**:
+   - Clique em "Atualizar Lista" para atualizar a exibição de produtos
+
+## Implementação Técnica
+
+- Usa Java Swing para a interface gráfica
+- Implementa a estrutura de dados Queue (LinkedList) para operações FIFO
+- Usa Java Streams para operações de filtragem e ordenação
+- LocalDate para manipulação de datas e cálculos de vencimento
+
+## Dados de Exemplo
+
+A aplicação vem pré-carregada com produtos de exemplo para fins de demonstração:
+- Leite: Código 001, Quantidade 10, Vence em 15/02/2025
+- Pão: Código 002, Quantidade 5, Vence em 10/03/2025
+- Queijo: Código 003, Quantidade 20, Vence em 01/04/2025
+- Ovos: Código 004, Quantidade 30, Vence em 20/04/2025
+- Manteiga: Código 005, Quantidade 15, Vence em 25/02/2025
+
+## Melhorias Futuras Possíveis
+
+1. **Persistência de Dados**:
+   - Implementar banco de dados para armazenamento permanente dos produtos
+   - Adicionar funcionalidade de exportação/importação de dados
+
+2. **Gestão de Categorias**:
+   - Criar categorias para produtos (alimentos, bebidas, limpeza, etc.)
+   - Filtrar produtos por categoria na interface
+
+3. **Histórico de Movimentações**:
+   - Registrar todas as entradas e saídas de produtos
+   - Relatórios de movimentação por período
+
+4. **Gestão de Fornecedores**:
+   - Cadastro de fornecedores vinculados aos produtos
+   - Histórico de compras por fornecedor
+
+5. **Alertas Automáticos**:
+   - Notificações por email ou pop-up para produtos próximos do vencimento
+   - Alertas para produtos com estoque baixo
+
+6. **Interface Responsiva**:
+   - Adaptar a interface para diferentes tamanhos de tela
+   - Versão mobile da aplicação
+
+7. **Controle de Acesso**:
+   - Sistema de login para diferentes usuários
+   - Níveis de permissão (administrador, operador, etc.)
+
+8. **Funcionalidades Avançadas**:
+   - Previsão de demanda baseada no histórico
+   - Sugestão automática de reposição
+   - Geração de etiquetas com códigos de barras
+
+9. **Integração com Outros Sistemas**:
+   - API para integração com sistemas de vendas
+   - Integração com leitor de código de barras
+
+## Requisitos
+
+- Java Runtime Environment (JRE) 8 ou superior
+- Java Development Kit (JDK) 8 ou superior (para desenvolvimento)
+
+## Compilação e Execução
+
+1. Compile todos os arquivos Java:
    ```
-   javac Produto.java Estoque.java Main.java
+   javac *.java
    ```
-3. Execute a classe principal:
+
+2. Execute a aplicação:
    ```
    java Main
    ```
-
-## Detalhes da Implementação
-
-### Classe Produto
-- Armazena as informações básicas de cada produto (nome, código, quantidade, data de vencimento)
-- Inclui métodos para atualizar a quantidade e obter informações do produto
-- Implementa toString() para facilitar a exibição dos dados
-
-### Classe Estoque
-- Gerencia uma fila de produtos usando a interface Queue
-- Implementa os métodos:
-  - `adicionarProduto()`: Adiciona produtos à fila
-  - `listarProdutos()`: Exibe produtos ordenados por data de vencimento
-  - `removerProduto()`: Remove o primeiro produto da fila (FIFO)
-  - `avisarProdutosProximosVencimento()`: Alerta sobre produtos próximos da validade
-
-### Classe Main
-- Demonstra o uso das funcionalidades do sistema
-- Cria um estoque e adiciona produtos de exemplo
-- Exibe a listagem de produtos, demonstra a remoção e os avisos de vencimento
-
-## Melhorias Futuras Possíveis
-- Implementar persistência de dados
-- Adicionar interface gráfica
-- Incluir relatórios de produtos vencidos
-- Implementar funcionalidade para atualização de quantidade após vendas parciais
-- Melhorar a ordenação FIFO para considerar tanto a data de inserção quanto a data de vencimento
 
 ## Autor
 Karoll Reis
