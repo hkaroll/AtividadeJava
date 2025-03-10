@@ -64,4 +64,4 @@ O projeto está organizado em três classes principais:
 Karoll Reis
 
 ## Licença
-Este projeto está licenciado sob a licença MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+Este projeto é de uso livre. Sinta-se à vontade para modificar e adaptar conforme necessário.
