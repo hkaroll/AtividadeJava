@@ -13,7 +13,6 @@ public class Produto {
         this.dataVencimento = dataVencimento;
     }
 
-    // Getters
     public String getNome() {
         return nome;
     }
@@ -30,7 +29,6 @@ public class Produto {
         return dataVencimento;
     }
 
-    // Método para atualizar a quantidade
     public void atualizarQuantidade(int quantidade) {
         this.quantidade += quantidade;
     }
