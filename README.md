@@ -100,11 +100,11 @@ Alternativamente, você pode importar o projeto em uma IDE como Eclipse, NetBean
 
 ## Screenshots
 
-![Tela Principal do Sistema](Imagens/Imagem_1.png)
+![Tela Principal do Sistema](screenshots/Imagem_1.png)
 
-![Tela Vencidos](Imagens/Imagem_2.png)
+![Tela Vencidos](screenshots/Imagem_2.png)
 
-![Tela Próximo ao Vencimento](Imagens/Imagem_3.png)
+![Tela Próximo ao Vencimento](screenshots/Imagem_3.png)
 
 
 ## Melhorias Futuras
