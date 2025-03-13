@@ -5,12 +5,14 @@ public class Produto {
     private String codigo;
     private int quantidade;
     private LocalDate dataVencimento;
+    private String categoria;
 
-    public Produto(String nome, String codigo, int quantidade, LocalDate dataVencimento) {
+    public Produto(String nome, String codigo, int quantidade, LocalDate dataVencimento, String categoria) {
         this.nome = nome;
         this.codigo = codigo;
         this.quantidade = quantidade;
         this.dataVencimento = dataVencimento;
+        this.categoria = categoria;
     }
 
     public String getNome() {
@@ -28,6 +30,10 @@ public class Produto {
     public LocalDate getDataVencimento() {
         return dataVencimento;
     }
+    
+    public String getCategoria() {
+        return categoria;
+    }
 
     public void atualizarQuantidade(int quantidade) {
         this.quantidade += quantidade;
@@ -40,6 +46,7 @@ public class Produto {
                 ", codigo='" + codigo + '\'' +
                 ", quantidade=" + quantidade +
                 ", dataVencimento=" + dataVencimento +
+                ", categoria='" + categoria + '\'' +
                 '}';
     }
 }
